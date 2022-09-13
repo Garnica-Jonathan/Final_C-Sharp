@@ -10,11 +10,11 @@ namespace Entrega_Final.Controllers
     [Route("[Controller]")]
     public class UsuarioController : ControllerBase
     {
-        [HttpGet("{id}")]
+        [HttpGet("{nombreUsuario}")]
 
-        public Usuario GetTraerNombre(int id)
+        public Usuario GetTraerUsuario(string nombreUsuario)
         {
-            return UsuarioHandler.GetTraerNombre(id);
+            return UsuarioHandler.GetTraerUsuario(nombreUsuario);
         }
 
         [HttpGet("{nombreUsuario}/{contraseña}")]

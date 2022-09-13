@@ -8,16 +8,16 @@ namespace Entrega_Final.Repository
     {
         public const string ConnectionString = "Server=DESKTOP-JU65CF5;Database=SistemaGestion;Trusted_Connection=true";
 
-        public static Usuario GetTraerNombre(int id)
+        public static Usuario GetTraerUsuario(string nombreUsuario)
         {
             Usuario resultado = new Usuario();
 
             using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {
-                string traer = "Select * From Usuario Where Id = @id";
+                string traer = "Select * From Usuario Where NombreUsuario = @nombreUsuario";
 
-                SqlParameter valor = new SqlParameter("id", SqlDbType.BigInt);
-                valor.Value = id;
+                SqlParameter valor = new SqlParameter("nombreUsuario", SqlDbType.VarChar);
+                valor.Value = nombreUsuario;
 
                 using (SqlCommand sqlCommand = new SqlCommand(traer, sqlConnection))
                 {
